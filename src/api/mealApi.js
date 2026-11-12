@@ -22,12 +22,25 @@ export const urls = {
 // { meals: null }, so we turn that into an empty array. This way the rest of
 // the app can always use .map() and .length without checking for null.
 export async function fetchJson(url) {
-  const response = await fetch(url)
+  let response
 
-  // fetch only rejects on network failure. A 404 or 500 answer still
-  // "succeeds", so we have to check response.ok ourselves.
+  // fetch rejects only when the request itself fails (no internet, server
+  // unreachable). The browser's own text for that is "Failed to fetch",
+  // which means little to a user, so we replace it with a clearer message.
+  try {
+    response = await fetch(url)
+  } catch {
+    throw new Error(
+      'Could not reach the recipe server. Check your internet connection and try again.',
+    )
+  }
+
+  // A 404 or 500 answer still "succeeds" for fetch, so we have to check
+  // response.ok ourselves.
   if (!response.ok) {
-    throw new Error(`The recipe server answered with status ${response.status}`)
+    throw new Error(
+      `The recipe server had a problem (status ${response.status}). Please try again later.`,
+    )
   }
 
   const data = await response.json()
