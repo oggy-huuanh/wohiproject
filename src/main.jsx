@@ -5,6 +5,7 @@ import { HashRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
 import App from './App.jsx'
+import FavoritesProvider from "./context/FavouritesProvider.jsx";
 
 // HashRouter keeps the route after the "#" (e.g. /pantry/#/recipe/52772).
 // GitHub Pages only serves static files, so with normal URLs a page refresh
@@ -12,7 +13,9 @@ import App from './App.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HashRouter>
+        <FavoritesProvider>
       <App />
+        </FavoritesProvider>
     </HashRouter>
   </StrictMode>,
 )
