@@ -1,8 +1,7 @@
 import { useContext } from 'react'
 import { FavoritesContext } from '../context/favoritesContext.js'
 
-// Small helper so components can write useFavorites()
-// instead of useContext(FavoritesContext) every time
+// Shortcut for useContext(FavoritesContext)
 function useFavorites() {
 
     const val = useContext(FavoritesContext)

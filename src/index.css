@@ -1,8 +1,4 @@
-/* Our own styles. Bootstrap does most of the work (it is imported before
-   this file in main.jsx), so this only holds what Bootstrap has no class for. */
-
-/* Sticky footer: the page is a column that is at least as tall as the
-   screen, and <main> grows to fill the free space. */
+/* Sticky footer */
 #root {
   min-height: 100vh;
   display: flex;
@@ -13,8 +9,7 @@ main {
   flex: 1;
 }
 
-/* Meal cards: every picture gets the same shape, cropped instead of
-   stretched, so the grid rows line up. */
+/* Same picture shape on every card */
 .meal-card-img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
@@ -38,7 +33,7 @@ main {
   transform: translateY(-2px);
 }
 
-/* Respect the "reduce motion" setting of the operating system */
+
 @media (prefers-reduced-motion: reduce) {
   .meal-card {
     transition: none;
@@ -49,7 +44,7 @@ main {
   }
 }
 
-/* Clear keyboard focus outline on links and buttons */
+
 a:focus-visible,
 button:focus-visible {
   outline: 3px solid #198754;

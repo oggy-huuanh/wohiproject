@@ -1,4 +1,3 @@
-
 import { Container } from 'react-bootstrap'
 import { Route, Routes } from 'react-router-dom'
 import AppNavbar from './components/AppNavbar.jsx'
@@ -15,15 +14,12 @@ function App() {
       <AppNavbar />
       <main>
         <Container className="py-4">
-          {/* Each Route maps a URL path to a page component */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pantry" element={<Pantry />} />
             <Route path="/browse" element={<Browse />} />
             <Route path="/favorites" element={<Favorites />} />
-            {/* ":id" is a URL parameter, read with useParams() in Recipe */}
             <Route path="/recipe/:id" element={<Recipe />} />
-            {/* "*" matches every URL not listed above */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>

@@ -6,8 +6,7 @@ import FavoriteButton from '../components/FavoriteButton.jsx'
 import Loader from '../components/Loader.jsx'
 import useFetch from '../hooks/useFetch.js'
 
-// Recipe screen: everything about one meal.
-// The meal id comes from the URL, e.g. /recipe/52772 -> id = "52772".
+// Recipe screen: one meal, id from the URL
 function Recipe() {
   const { id } = useParams()
   const { data, loading, error } = useFetch(urls.byId(id))
@@ -22,8 +21,7 @@ function Recipe() {
     )
   }
 
-  // lookup.php answers with a list of one meal, or an empty list
-  // (after fetchJson) when the id does not exist.
+  // A list of one meal, or empty when the id does not exist
   const meal = data[0]
 
   if (!meal) {
@@ -46,8 +44,7 @@ function Recipe() {
   // strTags is one string like "Meat,Casserole", or null
   const tags = meal.strTags ? meal.strTags.split(',') : []
 
-  // The instructions are one long text with line breaks. We split it into
-  // lines, remove empty ones, and show each line as its own paragraph.
+  // Split the instructions into paragraphs
   const steps = meal.strInstructions
     .split(/\r?\n/)
     .map((line) => line.trim())
@@ -59,7 +56,6 @@ function Recipe() {
         ← More {meal.strCategory} recipes
       </Link>
 
-      {/* On phones the two columns stack; from "md" they sit side by side */}
       <Row className="g-4 mt-1">
         <Col md={5}>
           <img
@@ -87,8 +83,7 @@ function Recipe() {
           <h2 className="h4 mt-4">Ingredients</h2>
           <ListGroup variant="flush">
             {ingredients.map((item, index) => (
-              // The same ingredient can appear twice in a recipe, so the
-              // index is added to keep the key unique.
+              // Index keeps the key unique when an ingredient repeats
               <ListGroup.Item key={`${item.name}-${index}`}>
                 <strong>{item.measure}</strong> {item.name}
               </ListGroup.Item>

@@ -1,9 +1,7 @@
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
-// Top navigation bar. NavLink from react-router adds the "active" class
-// to the link of the page we are on. "as={NavLink}" tells react-bootstrap
-// to render its Nav.Link as a router link instead of a normal <a>.
+// Top navigation bar
 function AppNavbar() {
   return (
     <Navbar bg="dark" variant="dark" expand="md" sticky="top">
@@ -11,7 +9,6 @@ function AppNavbar() {
         <Navbar.Brand as={NavLink} to="/">
           🥕 Pantry
         </Navbar.Brand>
-        {/* On small screens the links collapse into a hamburger menu */}
         <Navbar.Toggle aria-controls="main-nav" />
         <Navbar.Collapse id="main-nav">
           <Nav className="ms-auto">

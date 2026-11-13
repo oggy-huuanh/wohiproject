@@ -8,8 +8,7 @@ import useFetch from '../hooks/useFetch.js'
 
 // Browse screen
 function Browse() {
-  // The chosen category is kept in the URL (/browse?category=Dessert)
-  // instead of useState.
+  // The chosen category is kept in the URL (?category=Dessert)
   const [searchParams, setSearchParams] = useSearchParams()
   const selected = searchParams.get('category') // null when nothing is chosen
 
@@ -53,7 +52,6 @@ function Browse() {
         })}
       </div>
 
-      {/* Everything below is only shown after a category has been chosen */}
       {selected && (
         <section aria-live="polite">
           <h2 className="h4 mb-3">{selected}</h2>

@@ -7,9 +7,7 @@ import './index.css'
 import App from './App.jsx'
 import FavoritesProvider from "./context/FavouritesProvider.jsx";
 
-// HashRouter keeps the route after the "#" (e.g. /pantry/#/recipe/52772).
-// GitHub Pages only serves static files, so with normal URLs a page refresh
-// would give a 404. With the hash, the server always serves index.html.
+// HashRouter: GitHub Pages cannot serve normal routes on refresh
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HashRouter>

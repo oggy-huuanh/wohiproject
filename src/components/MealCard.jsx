@@ -1,18 +1,13 @@
 import { Badge, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-// One recipe as a card: picture, name and a link to the recipe page.
-// - meal: object from the API
-// - badge: optional small label
-// - children: optional extra content at the bottom
+// One recipe as a card: picture, name and link
 function MealCard({ meal, badge, children }) {
   const recipeUrl = `/recipe/${meal.idMeal}`
 
   return (
     <Card className="meal-card h-100 shadow-sm">
-      {/* The picture is decoration here (the name is right below it), so the
-          alt text is empty, and the link is hidden from keyboard and screen
-          reader users. They use the title link instead of hearing it twice. */}
+      {/* Decorative picture, hidden from screen readers (the title is the link) */}
       <Link to={recipeUrl} tabIndex={-1} aria-hidden="true">
         <Card.Img
           variant="top"
@@ -33,7 +28,6 @@ function MealCard({ meal, badge, children }) {
             <Badge bg="success">{badge}</Badge>
           </div>
         )}
-        {/* mt-auto pushes this to the bottom, so buttons line up in a row */}
         {children && <div className="mt-auto pt-2">{children}</div>}
       </Card.Body>
     </Card>

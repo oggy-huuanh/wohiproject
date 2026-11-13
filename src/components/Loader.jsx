@@ -1,7 +1,6 @@
 import { Spinner } from 'react-bootstrap'
 
-// Shown while we wait for the API. role="status" makes screen readers
-// announce the text, so the wait is not only visible but also "audible".
+// Shown while waiting for the API
 function Loader({ text = 'Loading…' }) {
   return (
     <div

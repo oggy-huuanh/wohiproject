@@ -1,8 +1,6 @@
 import { Alert, Button } from 'react-bootstrap'
 
-// Shown when an API call fails. If the page gives us an onRetry function,
-// we also show a "Try again" button that calls it.
-// (react-bootstrap's Alert already has role="alert" for screen readers.)
+// Shown when an API call fails, with an optional "Try again" button
 function ErrorMessage({ message, onRetry }) {
   return (
     <Alert variant="danger" className="my-3">
