@@ -5,6 +5,8 @@ import Home from './pages/Home.jsx'
 import Pantry from './pages/Pantry.jsx'
 import Browse from './pages/Browse.jsx'
 import Favorites from './pages/Favorites.jsx'
+import Recipe from './pages/Recipe.jsx'
+import NotFound from './pages/NotFound.jsx'
 
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
             <Route path="/pantry" element={<Pantry />} />
             <Route path="/browse" element={<Browse />} />
             <Route path="/favorites" element={<Favorites />} />
+            {/* ":id" is a URL parameter, read with useParams() in Recipe */}
+            <Route path="/recipe/:id" element={<Recipe />} />
+            {/* "*" matches every URL not listed above */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Container>
       </main>
