@@ -2,6 +2,7 @@ import { Badge, Col, ListGroup, Row } from 'react-bootstrap'
 import { Link, useParams } from 'react-router-dom'
 import { getIngredientList, urls } from '../api/mealApi.js'
 import ErrorMessage from '../components/ErrorMessage.jsx'
+import FavoriteButton from '../components/FavoriteButton.jsx'
 import Loader from '../components/Loader.jsx'
 import useFetch from '../hooks/useFetch.js'
 
@@ -81,8 +82,7 @@ function Recipe() {
             ))}
           </div>
 
-          {/* Step 6: the FavoriteButton goes here, e.g.
-              <FavoriteButton meal={meal} /> */}
+          <FavoriteButton meal={meal} />
 
           <h2 className="h4 mt-4">Ingredients</h2>
           <ListGroup variant="flush">

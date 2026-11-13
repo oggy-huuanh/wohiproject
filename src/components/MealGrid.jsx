@@ -1,4 +1,5 @@
 import { Col, Row } from 'react-bootstrap'
+import FavoriteButton from './FavoriteButton.jsx'
 import MealCard from './MealCard.jsx'
 
 // Responsive grid of meal cards, reused by Browse, My Pantry and Favorites.
@@ -11,7 +12,11 @@ function MealGrid({ meals, getBadge }) {
     <Row xs={1} sm={2} md={3} lg={4} className="g-3">
       {meals.map((meal) => (
         <Col key={meal.idMeal}>
-          <MealCard meal={meal} badge={getBadge ? getBadge(meal) : undefined} />
+          <MealCard meal={meal} badge={getBadge ? getBadge(meal) : undefined}>
+            {/* Everything between the MealCard tags arrives as "children"
+                and is shown at the bottom of the card */}
+            <FavoriteButton meal={meal} size="sm" />
+          </MealCard>
         </Col>
       ))}
     </Row>
