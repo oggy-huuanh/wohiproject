@@ -16,6 +16,7 @@ function Pantry() {
   const [meals, setMeals] = useState(null)
   async function handleSearch(){
     setSearching(true)
+    setSearchError(null)
     try{
       const names = selected.map(option => option.value)
       const result = await findMealsByIngredients(names)
@@ -28,7 +29,7 @@ function Pantry() {
   }
   return <div>
     <h1>The Pantry</h1>
-    <p>Here you can find all the ingredients you have in your pantry.</p>
+    <p>Here you can find recipes using your ingredients.</p>
     <Select isMulti options={ingreInfo} value={selected} onChange={setSelected} isLoading={loadingList} placeholder="Type an ingredient, for example, chicken" aria-label="Your ingredients" />
     <Button variant = "success" onClick={handleSearch} disabled={selected.length === 0 || searching}>Search</Button>
     {searching && <Loader text="Finding recipes…" />}
