@@ -13,6 +13,7 @@ function Home() {
   <p>This website is a place to find your next meal! Whenever and whatever you need for!</p>
     <Link className = "btn btn-success" to="/pantry">Pantry</Link>
     <Link className = "btn btn-success" to="/browse">Browse</Link>
+    <h2 className="h4 mt-4">Try this recipe</h2>
     {loading && <Loader />} {error && <ErrorMessage message={error} />}
     <div style={{ maxWidth: '320px' }}> {meal && <MealCard meal={meal} />}</div>
   </div>
